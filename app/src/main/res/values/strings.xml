@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SampleCompose</string>
+    <string name="groups">groups</string>
+    <string name="chat">chat</string>
+    <string name="identity">identity</string>
+    <string name="wallet">wallet</string>
+    <string name="connect">connect</string>
+    <string name="activity_for_glance_widgets">Activity for the Glance widgets</string>
+    <string name="app_widget_description">First Glance widget</string>
+    <string name="loading_widget">Loading widget…</string>
+    <string name="first_glance_widget">First Glance widget</string>
+</resources>
