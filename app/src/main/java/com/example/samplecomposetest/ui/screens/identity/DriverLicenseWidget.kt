@@ -104,13 +104,16 @@ fun DlDetailsPreview() {
 
 @Composable
 fun DriverLicenseCard(item: DriverLicenseState) {
+    val bgColor = Color(0xFF010080)
+    val contentColor = Color(0xFFF7F7F7)
+
     Card(
         modifier = Modifier
             .widthIn(340.dp)
             .aspectRatio(1.6f),
-        backgroundColor = Color(0xFF010080)
+        backgroundColor = bgColor
     ) {
-        CompositionLocalProvider(LocalContentColor provides Color(0xFFF7F7F7)) {
+        CompositionLocalProvider(LocalContentColor provides contentColor) {
             Column(
                 verticalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.padding(18.dp),
@@ -122,9 +125,14 @@ fun DriverLicenseCard(item: DriverLicenseState) {
                         .fillMaxWidth(),
                 ) {
                     Row {
-                        Image(
+                        Icon(
                             painter = painterResource(id = R.drawable.ic_driver_license),
                             contentDescription = "category",
+                            tint = bgColor,
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clip(CircleShape)
+                                .background(contentColor)
                         )
                         Spacer(modifier = Modifier.width(9.dp))
                         Text(text = item.catName, style = MaterialTheme.typography.body1)
@@ -134,7 +142,7 @@ fun DriverLicenseCard(item: DriverLicenseState) {
                         contentAlignment = Alignment.CenterEnd
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.more_horizontal),
+                            painter = painterResource(id = R.drawable.ic_meatball_hor),
                             contentDescription = "more",
                         )
                     }
@@ -149,7 +157,7 @@ fun DriverLicenseCard(item: DriverLicenseState) {
                             .fillMaxWidth(),
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.ic_driver_license),
+                            painter = painterResource(id = R.drawable.avatar),
                             contentDescription = "category",
                             modifier = Modifier
                                 .size(60.dp)
@@ -184,7 +192,6 @@ fun DriverLicenseCard(item: DriverLicenseState) {
         }
     }
 }
-
 @Composable
 fun DriverLicenseCardDetails(
     item: DriverLicenseDetailsState,
@@ -211,7 +218,7 @@ fun DriverLicenseCardDetails(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    BackBtn(modifier = Modifier.size(36.dp, 4.dp), {})
+                    BackBtn(modifier = Modifier.size(36.dp, 4.dp), onBackClicked)
                 }
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -221,9 +228,14 @@ fun DriverLicenseCardDetails(
                         .fillMaxWidth(),
                 ) {
                     Row {
-                        Image(
+                        Icon(
                             painter = painterResource(id = R.drawable.ic_driver_license),
                             contentDescription = "category",
+                            tint = bgColor,
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clip(CircleShape)
+                                .background(contentColor)
                         )
                         Spacer(modifier = Modifier.width(9.dp))
                         Text(text = item.catName, style = MaterialTheme.typography.body1)
@@ -233,9 +245,10 @@ fun DriverLicenseCardDetails(
                         contentAlignment = Alignment.CenterEnd
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.more_horizontal),
+                            painter = painterResource(id = R.drawable.ic_meatball_hor),
                             contentDescription = "more",
-                            tint = Color(0xFFF7F7F7)
+                            tint = Color(0xFFF7F7F7),
+                            modifier = Modifier.clickable { onMoreBtnClicked.invoke() }
                         )
                     }
                 }
@@ -361,7 +374,7 @@ private fun ExpandButton(
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text("SHOW SUPPORTING DOCUMENTS")
             Icon(
-                painter = painterResource(id = R.drawable.chevron_up),
+                painter = painterResource(id = R.drawable.ic_chevron_up),
                 contentDescription = "Expand",
                 modifier = Modifier.rotate(moreIconRotationAngle)
             )
