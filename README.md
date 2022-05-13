@@ -5,6 +5,8 @@ Learning Compose:
 https://developer.android.com/jetpack/compose
 https://developer.android.com/jetpack/compose/documentation
 
+https://developer.android.com/courses/android-basics-compose/course
+
 Hands on:
 https://developer.android.com/jetpack/compose/tutorial
 
@@ -28,3 +30,4 @@ https://github.com/android/compose-samples
 
 Compose Navigation:
 https://github.com/android/architecture-samples/blob/dev-compose/app/src/main/java/com/example/android/architecture/blueprints/todoapp/TodoNavigation.kt
+

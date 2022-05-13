@@ -103,14 +103,15 @@ fun DlDetailsPreview() {
 }
 
 @Composable
-fun DriverLicenseCard(item: DriverLicenseState) {
+fun DriverLicenseCard(item: DriverLicenseState, modifier: Modifier = Modifier) {
     val bgColor = Color(0xFF010080)
     val contentColor = Color(0xFFF7F7F7)
 
     Card(
-        modifier = Modifier
+        modifier = modifier
             .widthIn(340.dp)
             .aspectRatio(1.6f),
+        shape = RoundCornersShape12,
         backgroundColor = bgColor
     ) {
         CompositionLocalProvider(LocalContentColor provides contentColor) {

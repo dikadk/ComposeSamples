@@ -18,7 +18,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.samplecompose.ui.screens.identity.DynamicCardState
 import com.example.samplecomposetest.ui.theme.GidTheme
 import com.example.samplecomposetest.R
 

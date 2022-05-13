@@ -1,4 +1,4 @@
-package com.example.samplecompose.ui.screens.identity
+package com.example.samplecomposetest.ui.screens.identity
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -7,7 +7,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -42,7 +41,8 @@ fun DynamicItemPreviews() {
         OnBoardingItemState("Get your first credentials",
             "The power to act", true),
         OnBoardingItemState("Add profile photo",
-            "Build your profile"))
+            "Build your profile")
+    )
     Column {
         cards.forEach { DynamicOnBoardingItem(it)
         Spacer(modifier = Modifier.height(20.dp))}
@@ -54,20 +54,6 @@ fun DynamicItemPreviews() {
 fun CredentialCardPreview() {
     val item = CardState("COVID-19 Vaccination", "Government ID", "Verif", true)
     CredentialCard(item)
-}
-
-@Preview()
-@Composable
-fun EditProfileBtn() {
-    Box(contentAlignment = Alignment.Center) {
-        Button(onClick = {},
-            shape = RoundedCornerShape(50),
-            modifier = Modifier
-                .padding(4.dp)
-                .width(130.dp)) {
-            Text("Edit profile")
-        }
-    }
 }
 
 @Preview
@@ -116,11 +102,12 @@ fun DynamicItemBtn(isDone: Boolean, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun CredentialCard(item: CardState) {
-    Card(modifier = Modifier
-        .height(210.dp)
+fun CredentialCard(item: CardState, modifier: Modifier = Modifier) {
+    Card(modifier = modifier
+        .widthIn(340.dp)
         .aspectRatio(1.6f),
-        backgroundColor = Color(0xFF404245)
+        backgroundColor = Color(0xFF598170),
+        shape = RoundCornersShape12
     ) {
         CompositionLocalProvider(LocalContentColor provides Color(0xFFF7F7F7)) {
             Box(contentAlignment = Alignment.Center,
@@ -133,7 +120,7 @@ fun CredentialCard(item: CardState) {
                 ) {
                     Text(text = item.title, style = MaterialTheme.typography.body1)
                     Box(modifier = Modifier.size(ButtonDefaults.IconSize)) {
-                        Icon(painter = painterResource(id = R.drawable.ic_pin),
+                        Icon(painter = painterResource(id = R.drawable.ic_meatball_hor),
                             contentDescription = "pin",
                             tint = Color(0xFFF7F7F7))
                     }
