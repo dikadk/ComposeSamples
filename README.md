@@ -33,5 +33,5 @@ https://github.com/android/architecture-samples/blob/dev-compose/app/src/main/ja
 
 Demo:
 
-screenrec/dl_wip_demo.mp4
-screenrec/identity_screen_compose.mp4
+[![DL](screenrec/dl_wip_demo.mp4)
+[![Identity screen](screenrec/identity_screen_compose.mp4)
