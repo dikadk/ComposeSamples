@@ -31,3 +31,7 @@ https://github.com/android/compose-samples
 Compose Navigation:
 https://github.com/android/architecture-samples/blob/dev-compose/app/src/main/java/com/example/android/architecture/blueprints/todoapp/TodoNavigation.kt
 
+Demo:
+
+screenrec/dl_wip_demo.mp4
+screenrec/identity_screen_compose.mp4
