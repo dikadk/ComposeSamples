@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.samplecomposetest.MainActivity
 import com.example.samplecomposetest.R
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
@@ -31,15 +32,13 @@ val RoundCornersShape12 = RoundedCornerShape(12.dp)
 
 @Preview(showSystemUi = true)
 @Composable
-fun IdentityScreenPreview(){
-    IdentityScreen(){
-
-    }
+fun IdentityScreenPreview() {
+    IdentityScreen({}, {})
 }
 
 
 @Composable
-fun IdentityScreen(onViewAllClicked: () -> Unit) {
+fun IdentityScreen(onViewAllClicked: () -> Unit, onDlClicked: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -59,12 +58,13 @@ fun IdentityScreen(onViewAllClicked: () -> Unit) {
                 "Jesse Middlename",
                 "Cardholder",
                 "",
-                "01/02/2000",
-                "01/02/2018",
-                "01/02/2024"
             )
             CredentialCard(item = credState, modifier = Modifier.shadow(5.dp))
-            DriverLicenseCard(item = dlState, modifier = Modifier.shadow(5.dp))
+            DriverLicenseCard(
+                item = dlState,
+                onClick = onDlClicked,
+                modifier = Modifier.shadow(5.dp)
+            )
         }
 
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
@@ -160,7 +160,7 @@ fun DynamicOnboarding() {
         val selectedIndex = 3
         for (i in 0..4) {
             Surface(
-                color = if(i != selectedIndex ) Color(0xFFEFEFEF) else Color(0xFF101010),
+                color = if (i != selectedIndex) Color(0xFFEFEFEF) else Color(0xFF101010),
                 modifier = Modifier
                     .clip(RoundedCornerShape(9.dp))
                     .height(4.dp)

@@ -45,12 +45,9 @@ fun DigitalDocuments() {
                 "Jesse Middlename",
                 "Cardholder",
                 "",
-                "01/02/2000",
-                "01/02/2018",
-                "01/02/2024"
             )
             CredentialCard(item = credState, modifier = Modifier.shadow(5.dp))
-            DriverLicenseCard(item = dlState, modifier = Modifier.shadow(5.dp))
+            DriverLicenseCard(item = dlState, {}, modifier = Modifier.shadow(5.dp))
         }
 
         MyCredentials()

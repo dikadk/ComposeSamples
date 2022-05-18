@@ -2,7 +2,8 @@ package com.example.samplecomposetest.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val Identity300 = Color(0xFF002D9C)
+val Biometric300 = Color(0xFFA2191F)
+
+val Identity400 = Color(0xFF001C6C)
+val Biometric400 = Color(0xFF520408)

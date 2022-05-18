@@ -1,34 +1,12 @@
 package com.example.samplecomposetest
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.example.samplecompose.ui.screens.ChatScreen
-import com.example.samplecompose.ui.screens.ConnectScreen
-import com.example.samplecompose.ui.screens.GroupsScreen
-import com.example.samplecompose.ui.screens.WalletScreen
-import com.example.samplecomposetest.ui.screens.identity.DigitalDocuments
-import com.example.samplecomposetest.ui.screens.identity.IdentityScreen
-import com.example.samplecomposetest.ui.theme.GidTheme
+import androidx.fragment.app.FragmentActivity
+import com.example.samplecomposetest.ui.screens.driverlicense.view.DriverLicenseDetailsFragment
 
 
-class MainActivity : ComponentActivity() {
+class MainActivity : FragmentActivity() {
     private val mainScreens = listOf(
         Screen.Groups,
         Screen.Chat,
@@ -47,11 +25,17 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //view
+        setContentView(R.layout.activity_main)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, DriverLicenseDetailsFragment.newInstance())
+                .commitNow()
+        }
 
-
-        setContent {
+        //compose
+        /*setContent {
             val navController = rememberNavController()
-
             GidTheme {
                 // A surface container using the 'background' color from the theme
 
@@ -99,22 +83,6 @@ class MainActivity : ComponentActivity() {
                     GidNavHost(navController, modifier = Modifier.padding(innerPadding))
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun GidNavHost(navController: NavHostController, modifier: Modifier = Modifier){
-    NavHost(navController, startDestination = MainActivity.Screen.Identity.route, modifier) {
-        composable(MainActivity.Screen.Groups.route) { GroupsScreen(navController) }
-        composable(MainActivity.Screen.Chat.route) { ChatScreen(navController) }
-        composable(MainActivity.Screen.Identity.route) { IdentityScreen(onViewAllClicked = {
-            navController.navigate("${MainActivity.Screen.Identity.route}/viewAll")
-        }) }
-        composable("${MainActivity.Screen.Identity.route}/viewAll"){
-            DigitalDocuments()
-        }
-        composable(MainActivity.Screen.Wallet.route) { WalletScreen(navController) }
-        composable(MainActivity.Screen.Connect.route) { ConnectScreen(navController) }
+        }*/
     }
 }

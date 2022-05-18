@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="verifications_card_attested_by">Verified by %s</string>
+    <string name="verifications_card_attested_by_you">Verified by you</string>
+    <string name="verifications_card_issued_by">Issued by %s</string>
+    <string name="verifications_card_issued_by_you">Issued by GlobaliD</string>
+    <string name="verifications_view_details">View details</string>
+</resources>
